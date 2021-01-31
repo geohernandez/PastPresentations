@@ -1,0 +1,13 @@
+USE AdventureWorks2016
+GO
+
+
+DECLARE @RC AS INT, @StartProductID AS INT, @CheckDate AS DATETIME;
+
+SELECT @RC = 0,
+       @StartProductID = 805,
+       @CheckDate = getdate();
+
+EXECUTE @RC = [dbo].[uspGetBillOfMaterials] @StartProductID, @CheckDate;
+
+SELECT @RC AS RC;

@@ -1,0 +1,196 @@
+--> For zooming in Git Bash:
+     Ctrl + (Shift and + symbol)
+	 Ctrl + (-)
+
+Git Bash:
+     Ctl + U  (clean current line when you are at the end)
+
+	 
+Presentation from current Slide = Shift + F5
+
+Zoom it
+Initialize and use Ctrl + 1 (Zoom) 
+                   Ctrl + 4 (Draw - Escape)
+
+
+
+Draw in the whiteboard the states
+B- Loading our first repo
+Demo_01
+--All in master
+  1. Initialization of a new repo
+  2. Add some files to this new repo
+       - Example with one file and other to the rest (Explanation about Staged)
+	   - Show status of files
+  3. Commit and explanation about it
+  4. Add a new origin or whatever target repo
+  5. First push with tracking and explanation
+  6. Add a new file inside the SubTest
+  7. Execute git fetch to realize changes
+  8. Git push
+  6. Delete previous file and commit and push
+  9. show the log --> git log
+  
+  gb1,gb2,gb3
+  
+  
+c-Branching Model  
+--Git Branching model
+  1. Basic model
+  2. Cloning an existing branch
+  3. Raising a new branch (alternative 1 - git checkout -b maryes-feature master)
+      Start to work in one branch and do an stash
+  
+  4. Checking the origin and show it
+  5. Modifying some files inside the SQL Saturday Project
+  6. Showing the use of VS Ignore file
+  
+  gc1,gc2,gc3 ....
+  
+  --Second session
+--Simulating two users which connect and update the same branch
+  1. Required - Install a virtual machine (plan B - another directory for access)
+  2. Creating one branch and both users will have to start work on the same
+  3. UserA create the branch and UserB will clonning it
+  4. UserA is going to commit and UserB has to pull -- Remark how so much important is to update frecuently
+  
+git commit -m "'descriptive message'"
+git commit -m "=>descriptive message<==
+git commit -m "=>descriptive message<=='"
+  
+  
+  --New virtual machine
+  User> datawithgeo
+  Password> Gulag20201511
+
+ssh geohernandez@40.113.155.159   Password> Gulag20201511
+
+
+https://portal.azure.com
+--Azure DB
+User> datawithgeo
+Password: Gulag2020
+
+
+sqlcork@geohernandez.net -- Gulag2020+
+ 
+  --For a new branch you should use  
+    git push -u origin --all
+	
+	-u
+
+Project Name
+SQLSaturday_Cork -- Repo>SQLSaturdayCorkDB	
+
+  
+mydatalab.database.windows.net
+
+Demo_02  -- Pull request
+
+We have to wait some minutes before to some new branchs added being recognized by Azure Devops
+
+
+
+SqlPackage.exe /SourceFile:"<Dacpac file location>" /Action:Publish /TargetServerName:"<ServerName>.database.windows.net"
+/TargetDatabaseName:"<DatabaseName>" /TargetUser:"<Username>" /TargetPassword:"<Password> "
+
+
+SqlPackage /Action:Publish /SourceFile:"C:\SQLSaturday\Demos\SSDT\SQLSaturday\bin\Debug\SQLSaturday.dacpac" /Profile:"C:\SQLSaturday\Demos\SSDT\SQLSaturday\SQLSaturdayAzure.publish.xml"
+
+--Good syntax
+SqlPackage /Action:Publish /SourceFile:"C:\SQLSaturday\Demos\SSDT\SQLSaturday\bin\Debug\SQLSaturday.dacpac" /tcs:"server=tcp:mydatalab.database.windows.net,1433;Initial Catalog=SQLSaturday;Persist Security Info=False;User ID=datawithgeo;Password=Gulag2020;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"    
+   
+   
+Server=tcp:mydatalab.database.windows.net,1433;Initial Catalog=SQLSaturday;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;   
+   
+SqlPackage.exe /SourceFile:"C:\SQLSaturday\Demos\SSDT\SQLSaturday\bin\Debug\SQLSaturday.dacpac" /Action:Publish /TargetServerName:"mydatalab.database.windows.net"/TargetDatabaseName:SQLSaturday/TargetUser:"datawithgeo" /TargetPassword:"Gulag2020"
+
+
+Wordpress - User: geohernandez@gmail.net   -  Password: S!MVT)Z^ni#c311u
+
+
+Nugget package
+API Key ==>
+oy2l4syzcix26jvl4ejahvdp3ezrglpelnupcp25jyqugm
+
+
+
+
+
+sudo wget https://dev.mysql.com/get/mysql80-community-release-el8-1.noarch.rpm
+
+sudo md5sum mysql80-community-release-el8-1.noarch.rpm
+
+7166fed89332ab92fb3ec666e95d6ad1
+
+
+sudo rpm –ivh mysql80-community-release-el8-1.noarch.rpm
+sudo yum localinstall https://dev.mysql.com/get/mysql80-community-release-el8-1.noarch.rpm
+
+shell> sudo yum localinstall mysql57-community-release-el8-1.noarch.rpm
+
+sudo yum localinstall mysql80-community-release-fc30-1.noarch.rpm
+
+sudo yum localinstall mysql80-community-release-el8-1.noarch.rpm
+
+
+
+yum install epel-release
+
+sudo wget https://dev.mysql.com/get/mysql80-community-release-el7-1.noarch.rpm.noarch.rpm
+
+
+sudo wget http://ftp.altlinux.org/pub/distributions/ALTLinux/Sisyphus/i586/RPMS.classic//libssl1.1-1.1.1d-alt1.1.i586.rpm
+
+
+sudo yum localinstall mysql80-community-release-el7-1.noarch.rpm.noarch.rpm
+
+
+libssl1.1-1.1.1d-alt1.1.i586.rpm
+
+sudo yum localinstall libcrypto1.1-1.1.1d-alt1.1.x86_64.rpm
+
+
+http://mirror.centos.org/centos/8/AppStream/x86_64/os/Packages/glibc32-2.28-42.1.el8.x86_64.rpm
+
+
+http://mirror.centos.org/centos/8/BaseOS/x86_64/os/Packages/glibc-2.28-42.el8_0.1.x86_64.rpm
+
+
+rpm -qpi 
+
+sudo yum install lib64openssl1.1-1.1.1c-1.mga8.aarch64.rpm
+
+yum update babl -v --skip-broken
+
+Centos / VM  > geohernandez  password:Pazcabral3030+
+
+
+Docker Container + SQL DB 2019
+docker run -d -p 15789:1433 --env ACCEPT_EULA=Y --env SA_PASSWORD=Gulag2020 --name datalabcontainer mcr.microsoft.com/mssql/server:2019-latest
+
+ docker run --name SQLServer -d -p 1433:1433 -e sa_password=Password_01 -e ACCEPT_EULA=Y microsoft/mssql-server-windows-developer
+ 
+ 
+ 
+8102162M2007128NIC
+
+docker run -rm -v c:/Users:/data ls/data
+
+
+VM: DataLab
+IP:
+User:datawithgeo
+Password: Ideragulag20+20
+
+User Local host - user:utest  password: 12345
+
+
+LinuxSQL
+
+51.132.24.17
+ghernandez
+Ideragulag20+20
+
+
+

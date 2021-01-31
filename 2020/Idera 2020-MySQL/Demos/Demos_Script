@@ -1,0 +1,164 @@
+/* Demo 1 : Usando explain para revisar un plan de ejecucion - Workbench and PowerShell*/
+
+explain select * from departments where dept_name='Development';
+
+explain format=json select * from departments where dept_name='Development';
+
+
+/* Demo 2 : Full Table scan */
+
+select * from departments;
+
+
+/* Demo 3 : Range Scan */
+
+/* Tip: Para que se aplique un Range Scan debo tener un indice que lo soporte */
+
+select * from employees where hire_date between '1986-06-26' and '1987-01-01';
+
+/* Vamos a crear un indice que soporte mi consulta */
+create index idx_hire_date on employees(hire_date);
+
+
+A where clause can be applied in the next order, from best to worst
+
+Apply the conditions to the index lookup operation to eliminate nonmatching
+rows. This happens at the storage engine layer.
+• Use a covering index (“Using index” in the Extra column) to avoid row accesses,
+and filter out nonmatching rows after retrieving each result from the index. This
+happens at the server layer, but it doesn’t require reading rows from the table.
+• Retrieve rows from the table, then filter nonmatching rows (“Using where” in the
+Extra column). This happens at the server layer and requires the server to read rows
+from the table before it can filter them.
+
+
+
+/* Demo 4 : Slide 14  Index Lookup  - Simple Table - See the EP and the ref column (busqueda en profundidad)*/
+
+select * from employees as e
+where e.emp_no = 10004;
+
+/* Demo 5 : Slide 14  Index Lookup  - Two Tables - See the EP and the ref column (busqueda en profundidad)*/
+
+select * from employees as e
+inner join salaries as s on e.emp_no=s.emp_no
+where e.emp_no = 10004;
+
+
+/* Demo 6 : Slide 15 - Removing an index and checking the status , is interesting to see how the Extra column Where was used
+   only for exclude or discard but AFTER to read it*/
+   
+drop index idx_hire_date on employees;
+   
+select * from employees where hire_date ='1986-06-26';
+
+/* Demo 6 : Reconstruyendo el indice again */
+create index idx_hire_date on employees(hire_date);
+
+
+/*Demo 8 - No siempre los indices evitaran que tengamos que leer muchas filas */
+Mira aqui
+Use a covering index (“Using index” in the Extra column) to avoid row accesses,
+and filter out nonmatching rows after retrieving each result from the index. This
+happens at the server layer, but it doesn’t require reading rows from the table.
+
+select emp_no,count(*) from salaries group by emp_no;
+
+
+
+/* Demo 9 - Vemos como la funcion YEAR inhibe el uso del Indice * Slide 18/
+
+   
+select * from employees where YEAR(hire_date) ='1986';
+
+Luego del fix
+
+select * from employees where hire_date >='1986-01-01' and hire_date <'1987-01-01';
+
+*/ Demo 10 - Like Slide 19
+
+select * from employees where first_name like 'Elvis';
+
+select * from employees where first_name like 'Elvi%';
+
+--Failed
+
+select * from employees where first_name like '%lvis';
+
+
+*/ Demo 11 - Like Slide 20 y 21-- Revisar el uso de una tabla en donde tengamos que crear un indice
+y verificar la logica del orden , revisar employees
+
+Vamos a crear un indice basado en las columnas de menor o baja selectividad
+
+create index idx_gender_lastname on employees(gender,last_name);
+
+Luego ejecutamos esta consulta
+
+explain select * from employees where last_name = 'Randi';
+
+Ahora comparemos si de verdad incluimos el genero, todo va bien
+
+ explain select * from employees where gender='M' and last_name = 'Randi';
+ 
+Y si .. cambiamos el orden?
+
+ explain select * from employees where last_name = 'Randi' and gender='M';
+
+Es igual porque ambos estan contenidos
+
+Pero mejor hagamos las cosas bien
+
+
+drop index idx_gender_lastname on employees;
+
+create index idx_lastname_gender on employees(last_name,gender);
+
+drop index idx_lastname_gender on employees;
+
+
+
+
+	select dm.dept_no, e.first_name,e.last_name,s.salary,s.from_date,s.to_date,e.emp_no
+	from dept_manager as dm
+	inner join employees as e USING(emp_no)
+	inner join salaries as s USING(emp_no)
+	where last_name='Onuegbe' and first_name='Peternela' ;
+
+
+    select emp_no from employees where emp_no=110725;
+	select salary,from_date,to_date from salaries where emp_no = emp_no=110725;
+	select dept_name from dept_manager where emp_no = 110725;
+
+
+
+SELECT * FROM tag
+JOIN tag_post ON tag_post.tag_id=tag.id
+JOIN post ON tag_post.post_id=post.id
+WHERE tag.tag='mysql';
+
+You might run these queries:
+mysql> SELECT * FROM tag WHERE tag='mysql';
+mysql> SELECT * FROM tag_post WHERE tag_id=1234;
+mysql> SELECT * FROM post WHERE post.id in (123,456,567,9098,8904);
+
+
+
+--
+SELECT * FROM sakila.film
+WHERE EXISTS (
+SELECT * FROM sakila.film_actor WHERE actor_id = 1
+AND film_actor.film_id = film.film_id);
+
+select * from employees as e
+where exists (select 1 from salaries as s on e.emp_no=s.emp_no where s.emp_no = 10004);
+
+
+/* Vamos a crear un indice que soporte mi consulta */
+
+
+diapositiva 18 Where (Pagina 38 pn performance queries) alternativas   YEAR(o_orderdate) = 1997    where o_orderdate >=01011997 and <01011998
+
+-- Iniciando desde PowerShell
+
+docker run -it --network docker_default --rm mysql mysql -hdocker_employees_1 -uroot -p

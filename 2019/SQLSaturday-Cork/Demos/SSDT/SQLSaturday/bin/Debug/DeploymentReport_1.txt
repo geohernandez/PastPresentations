@@ -1,0 +1,31 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Create
+       [dbo].[Country] (Table)
+       [dbo].[Customer] (Table)
+       [dbo].[Level] (Table)
+       [dbo].[Session] (Table)
+       [dbo].[Speaker] (Table)
+       [dbo].[SQLSatEvent] (Table)
+       [dbo].[Supplier] (Table)
+       [dbo].[Track] (Table)
+       Default Constraint: unnamed constraint on [dbo].[Country] (Default Constraint)
+       Default Constraint: unnamed constraint on [dbo].[Country] (Default Constraint)
+       [dbo].[FK_Session_Level] (Foreign Key)
+       [dbo].[Fk_Session_Speaker] (Foreign Key)
+       [dbo].[Fk_Session_SQLSatEvent] (Foreign Key)
+       [dbo].[FK_Session_Track] (Foreign Key)
+       [dbo].[FK_SQLSatEvent_Country] (Foreign Key)
+       [dbo].[usp_GetErrorInfo] (Procedure)
+       [dbo].[usp_getSpeakerById] (Procedure)
+
+** Supporting actions

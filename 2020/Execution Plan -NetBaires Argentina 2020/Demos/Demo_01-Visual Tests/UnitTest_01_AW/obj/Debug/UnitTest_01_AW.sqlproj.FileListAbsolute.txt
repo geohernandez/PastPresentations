@@ -1,0 +1,16 @@
+C:\Presentations\2020\Guatemala 2020\demos\Demo_01-Visual Tests\UnitTest_01_AW\bin\Debug\UnitTest_01_AW.dacpac
+C:\Presentations\2020\Guatemala 2020\demos\Demo_01-Visual Tests\UnitTest_01_AW\bin\Debug\UnitTest_01_AW.dll
+C:\Presentations\2020\Guatemala 2020\demos\Demo_01-Visual Tests\UnitTest_01_AW\bin\Debug\UnitTest_01_AW.pdb
+C:\Presentations\2020\Guatemala 2020\demos\Demo_01-Visual Tests\UnitTest_01_AW\obj\Debug\UnitTest_01_AW.sqlprojAssemblyReference.cache
+C:\Presentations\2020\Guatemala 2020\demos\Demo_01-Visual Tests\UnitTest_01_AW\obj\Debug\UnitTest_01_AW.dll
+C:\Presentations\2020\Guatemala 2020\demos\Demo_01-Visual Tests\UnitTest_01_AW\obj\Debug\UnitTest_01_AW.pdb
+C:\Presentations\2020\Guatemala 2020\demos\Demo_01-Visual Tests\UnitTest_01_AW\obj\Debug\Model.xml
+C:\Presentations\2020\Guatemala 2020\demos\Demo_01-Visual Tests\UnitTest_01_AW\obj\Debug\refactor.xml
+C:\Presentations\2020\Guatemala 2020\demos\Demo_01-Visual Tests\UnitTest_01_AW\obj\Debug\postdeploy.sql
+C:\Presentations\2020\Guatemala 2020\demos\Demo_01-Visual Tests\UnitTest_01_AW\obj\Debug\predeploy.sql
+C:\Presentations\2020\Argentina 2020\Demos\Demo_01-Visual Tests\UnitTest_01_AW\bin\Debug\UnitTest_01_AW.dacpac
+C:\Presentations\2020\Argentina 2020\Demos\Demo_01-Visual Tests\UnitTest_01_AW\bin\Debug\UnitTest_01_AW.dll
+C:\Presentations\2020\Argentina 2020\Demos\Demo_01-Visual Tests\UnitTest_01_AW\bin\Debug\UnitTest_01_AW.pdb
+C:\Presentations\2020\Argentina 2020\Demos\Demo_01-Visual Tests\UnitTest_01_AW\obj\Debug\UnitTest_01_AW.sqlprojAssemblyReference.cache
+C:\Presentations\2020\Argentina 2020\Demos\Demo_01-Visual Tests\UnitTest_01_AW\obj\Debug\UnitTest_01_AW.dll
+C:\Presentations\2020\Argentina 2020\Demos\Demo_01-Visual Tests\UnitTest_01_AW\obj\Debug\UnitTest_01_AW.pdb

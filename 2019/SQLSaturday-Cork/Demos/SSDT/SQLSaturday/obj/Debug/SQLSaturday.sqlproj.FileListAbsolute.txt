@@ -1,0 +1,11 @@
+C:\SQLSaturday\Demos\SSDT\SQLSaturday\bin\Debug\SQLSaturday.dacpac
+C:\SQLSaturday\Demos\SSDT\SQLSaturday\bin\Debug\SQLSaturday.dll
+C:\SQLSaturday\Demos\SSDT\SQLSaturday\bin\Debug\SQLSaturday.pdb
+C:\SQLSaturday\Demos\SSDT\SQLSaturday\obj\Debug\SQLSaturday.dll
+C:\SQLSaturday\Demos\SSDT\SQLSaturday\obj\Debug\SQLSaturday.pdb
+C:\Presentations\2019\SQLSaturday\Demos\SSDT\SQLSaturday\bin\Debug\SQLSaturday.dacpac
+C:\Presentations\2019\SQLSaturday\Demos\SSDT\SQLSaturday\bin\Debug\SQLSaturday.dll
+C:\Presentations\2019\SQLSaturday\Demos\SSDT\SQLSaturday\bin\Debug\SQLSaturday.pdb
+C:\Presentations\2019\SQLSaturday\Demos\SSDT\SQLSaturday\obj\Debug\SQLSaturday.dll
+C:\Presentations\2019\SQLSaturday\Demos\SSDT\SQLSaturday\obj\Debug\SQLSaturday.pdb
+C:\Presentations\2019\SQLSaturday\Demos\SSDT\SQLSaturday\obj\Debug\SQLSaturday.sqlprojAssemblyReference.cache

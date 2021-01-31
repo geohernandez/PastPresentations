@@ -1,0 +1,13 @@
+namespace UnitTest.SQLEasyUnitTest.TestDB.Tests.Framework
+{
+    public class ResultsetSorting
+    {
+        public ResultsetSorting(int resultsetNumber, string resultsetSortExpression)
+        {
+            ResultsetNumber = resultsetNumber;
+            ResultsetSortExpression = resultsetSortExpression;
+        }
+        public int ResultsetNumber { get; }
+        public string ResultsetSortExpression { get; }
+    }
+}

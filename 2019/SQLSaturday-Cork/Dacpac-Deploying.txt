@@ -1,0 +1,3 @@
+cd "C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\Extensions\Microsoft\SQLDB\DAC\130"
+
+SqlPackage /Action:Publish /SourceFile:"C:\SQLSaturday\Demos\SSDT\SQLSaturday\bin\Debug\SQLSaturday.dacpac" /Profile:"C:\SQLSaturday\Demos\SSDT\SQLSaturday\SQLSaturdayAzure.publish.xml"

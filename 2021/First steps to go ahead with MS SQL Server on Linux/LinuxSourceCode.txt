@@ -1,0 +1,133 @@
+========================================================================================================================================================================
+To define a new repository, you can either add a [repository] section to the /etc/yum.conf file, or to a .repo file in the /etc/yum.repos.d/ directory. All files with the .repo file extension in this directory are read by yum, and it is recommended to define your repositories here instead of in /etc/yum.conf. */
+========================================================================================================================================================================
+
+yum repolist all
+
+*****  In Ubuntu we can use the following command  *******
+ls /etc/apt/sources.list.d
+
+========================================================================================================================================================================
+In case that the repository is disable we could enable it with the following command: yum-config-manager --enable  repo_id(get it from repolist all), it will return a 
+permission message, so it is important to hightligh about sudo and explain about root. */
+========================================================================================================================================================================
+yum-config-manager --enable write_repo_id_here
+
+
+========================================================================================================================================================================
+For disabling you only need to apply the following command
+========================================================================================================================================================================
+yum-config-manager --disable write_repo_id_here
+
+
+
+
+========================================================================================================================================================================
+CURL command
+========================================================================================================================================================================
+
+--curl is a software for transfering files, the parameter -o especify the file name
+--so the following command save the download file into the path/name: /etc/yum.repos.d/mssql-server.repo
+--the symbol > allow us to create a new file(or overwrite an existing) and >> append the content in an existing without replacing the content
+
+sudo curl -o /etc/yum.repos.d/mssql-server.repo https://packages.microsoft.com/config/rhel/8/mssql-server-2019.repo
+  
+curl https://packages.microsoft.com/config/rhel/8/mssql-server-2019.repo | sudo tee /etc/yum.repos.d/mssql-server.repo 
+
+sudo curl https://packages.microsoft.com/config/rhel/8/mssql-server-2019.repo > /etc/yum.repos.d/mssql-server.repo
+
+
+========================================================================================================================================================================
+Installing the repo packages - 
+   1. Red Hat Enterprise Level
+   2. Ubuntu
+========================================================================================================================================================================
+
+========================================================================================================================================================================
+ 1. RHEL - Installing & Configuring SQL Server, the parameter -y is to answer yes to everything
+========================================================================================================================================================================
+
+sudo curl -o /etc/yum.repos.d/mssql-server.repo https://packages.microsoft.com/config/rhel/8/mssql-server-2019.repo
+
+sudo yum install -y mssql-server
+
+-- Use the following command if you want to remove the yum repo for mssql-server
+yum remove mssql-server
+
+-- Setup the package
+sudo /opt/mssql/bin/mssql-conf setup
+
+*****  Options to check our new SQL Server service  *******
+ps -e | grep sql
+
+
+-- Verifying the status of the mssql-server service
+systemctl status mssql-server
+
+
+*****  Downloading the SQL Server Client Tools - Repo for RHEL: https://packages.microsoft.com/config/rhel/8/ *******
+curl https://packages.microsoft.com/config/rhel/8/prod.repo | sudo tee /etc/yum.repos.d/msprod.repo
+
+
+======================================================================================================================
+ As alternative option we have:
+sudo curl -o /etc/yum.repos.d/msprod.repo https://packages.microsoft.com/config/rhel/8/prod.repo
+======================================================================================================================
+
+*****  Installing the SQL Server Tools - Repo for RHEL: https://packages.microsoft.com/config/rhel/8/ *******
+sudo yum install mssql-tools unixODBC-devel
+
+
+*****  Try to connect locally : SELECT @@VERSION GO *******
+sudo /opt/mssql-tools/bin/sqlcmd -U sa
+
+
+*****  Finally, ONLY for RHEL open port 1433 on the firewall *******
+sudo firewall-cmd --zone=public --add-port=1433/tcp --permanent && sudo firewall-cmd --reload
+
+
+======================================================================================================================
+ 2. Ubuntu - Installing SQL Server
+======================================================================================================================
+*****  apt-key is a utility to add trusted keys to apt for repositories   *******
+curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+
+
+======================================================================================================================
+Storing the package
+======================================================================================================================
+curl https://packages.microsoft.com/config/ubuntu/18.04/mssql-server-2019.list | sudo tee /etc/apt/sources.list.d/mssql-server.list
+
+
+======================================================================================================================
+Setting up ms sql 
+======================================================================================================================
+sudo apt-get update && sudo apt-get install -y mssql-server
+
+
+*****  Starting with the Setup on Ubuntu *******
+sudo /opt/mssql/bin/mssql-conf setup
+
+
+====Checking the service status =====================================================================================
+sudo systemctl status mssql-server
+
+
+
+======================================================================================================================
+Downloading the SQL Server Client tools 
+======================================================================================================================
+curl https://packages.microsoft.com/config/ubuntu/18.04/prod.list | sudo tee /etc/apt/sources.list.d/msprod.list 
+
+
+======================================================================================================================
+Other examples
+sudo curl https://packages.microsoft.com/config/ubuntu/18.04/prod.list > sudo /etc/apt/sources.list.d/msprod.list
+curl -o /etc/apt/sources.list.d/msprod.list https://packages.microsoft.com/config/ubuntu/18.04/prod.list
+======================================================================================================================
+
+======================================================================================================================
+Installing the SQL Server Client tools 
+======================================================================================================================
+
+sudo apt-get update && sudo apt-get install mssql-tools unixodbc-dev

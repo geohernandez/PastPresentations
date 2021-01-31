@@ -1,0 +1,28 @@
+PS C:\Professional Life\Presentations\2020\Idera 2020-MySQL\Docker> docker-compose up -d
+
+to turn off
+
+
+127.0.0.1
+
+Iniciar desde linea de comando (correcto)
+docker run -it --network docker_default --rm mysql mysql -hdocker_employees_1 -uroot -p
+
+
+ docker run -v c:\data_directory:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=pwd -d mysql:latest
+ 
+ 
+ docker run -it -v C:\data_directory:/var/lib/mysql node:lts bash
+ 
+ 
+docker run --name docker_employees_1 -v C:\data_directory:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=pwd -d mysql:latest
+
+create a new docker with access
+
+docker run --name docker_idera -v C:\data_directory:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=pwd -d mysql:latest
+
+docker run -d -p 33060:3306 --name docker_employees_1  -e MYSQL_ROOT_PASSWORD=pwd --mount src=mysql-db-data,dst=/var/lib/mysql mysql
+
+docker run -it --network docker_default --rm mysql mysql -hdocker_employees_1 -uroot -p
+
+bin/nodetool status
